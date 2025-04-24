@@ -24,6 +24,9 @@
     "tailwindcss": "^4.1.4",
     "three": "^0.176.0"
   },
+  "overrides": {
+    "react": "$react"
+  },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@types/react": "^19.0.10",
