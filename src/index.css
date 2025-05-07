@@ -20,47 +20,84 @@
   justify-content: center;
   text-align: center;
   padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .header h1 {
   font-family: monospace;
   font-size: 2.25rem;
-  line-height: 1.2;
-  word-wrap: break-word;
-  white-space:normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.4;
   text-align: center;
-  padding: 0 1rem;
+  position: relative;
   max-width: 100%;
 }
 
+.typewriter-container {
+  display: inline-block;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.typewriter-text {
+  display: inline;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 1px;
+  animation: blink-caret 0.75s step-end infinite;
+}
 .memoji {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Align vertically center */
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap; /* Ensures it stacks nicely on smaller screens */
-  gap: 2rem;
+  flex-wrap: nowrap; /* Prevent wrapping to keep items side by side */
+  gap: 1.5rem; /* Reduced gap for closer positioning */
   margin-top: 50px;
-  height: fit-content;
+  width: 100%;
+  max-width: 1200px; /* Limit maximum width */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* Important for absolute positioning of children */
 }
 
+/* Lanyard styling */
 .lanyard {
-  width: 400px;
-  height: 400px; /* Optional: fix height for consistency */
+  flex: 0 0 auto; /* Don't grow or shrink, stay at specified width */
+  width: 400px; /* Fixed width */
+  max-width: 40%; /* But limit to 40% of container on smaller screens */
+  min-width: 250px; /* Ensure minimum width */
+  height: auto;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Bubble styling */
 .bubble {
+  flex: 1 1 auto; /* Allow growing and shrinking */
   font-family: cursive;
   background-color: whitesmoke;
   font-size: 20px;
   color: black;
-  width: 350px;
+  max-width: 100%; /* Limit maximum width */
   height: fit-content;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .section1{
@@ -78,7 +115,7 @@
 }
 
 .myphoto{
-  width: 400px;
+  width: 350px;
   height: auto;
   background: #C8ACD6;
   padding: 20px;
@@ -88,17 +125,16 @@
 .myphoto img{
   border-radius: 50%;
   width: 300px;
-  
 }
 
 .about{
   text-align: justify;
-    width: 100%;
+  width: 100%;
   
 }
 
 .about h1{
-  font-size: 40px;
+  font-size: 30px;
   color: #C68FE6;
   font-weight: bold;
   word-spacing: 5px;
@@ -106,16 +142,16 @@
 }
 
 .about h2{
-  font-size: 30px;
+  font-size: 25px;
   color: #FFE1FF;
 }
 
 .about h4{
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .about p {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .whatIDo {
@@ -161,10 +197,6 @@
   background-color: #C8ACD6; 
 }
 
-.container2{
-  display: flex;
-}
-
 .contact{
   margin-top: 10px;
   display: flex;
@@ -175,7 +207,7 @@
 }
 
 .contact > div {
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   align-items: center; /* ensures vertical alignment */
   gap: 0.5rem;
@@ -200,7 +232,6 @@
   box-shadow: 0 4px 12px rgba(254, 254, 254, 0.2);
 }
 
-
 .apps{
   display: flex;
   align-items: center;
@@ -221,12 +252,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 10px;
 }
+
 .container2{
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
   align-items: center;
-
 }
 .counter{
   display: flex;
@@ -684,7 +714,7 @@
   width: 250px;
 }
 
-.bubble {
+.bubble2 {
   font-family: cursive;
   background-color: whitesmoke;
   font-size: 16px;
@@ -785,24 +815,23 @@ letter-spacing: 2px;
 }
 @layer components {
   .typewriter {
-    display: inline-flex;
+    display: inline-block;
     overflow: hidden;
-    border-right: 2px solid white;
+    border-right: 2px solid white; /* Optional caret */
     white-space: nowrap;
-    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-    width: fit-content;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
   }
-
+  
   @keyframes typing {
-    from {
-      width: 0
-    }
-
-    to {
-      width: 35ch
-    }
+    from { width: 0 }
+    to { width: 35ch } /* You can adjust this to your text length */
   }
-
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+  }
+  
   @keyframes scroll {
     from {
       opacity: 0;
@@ -842,21 +871,24 @@ letter-spacing: 2px;
   .section1{
     margin-top: 500px;
   }
-  .back {
+
  
+  .back {
     font-size: 12px;
     
   }
+ 
   
-
 .lanyard {
-  width: 400px;
-  height: 0px; /* Optional: fix height for consistency */
+  width: 100%;
+  max-width: 350px;
+  min-height: 300px;
+  margin-top: -50px;
 }
 
 .bubble {
   font-size: 16px;
-  width: 350px;
+  width: 200px;
 }
 
 
@@ -867,7 +899,6 @@ letter-spacing: 2px;
 
 .myphoto{
   width: 30%;
-
 }
 
 
@@ -920,7 +951,7 @@ letter-spacing: 2px;
 }
 
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 720px) {
 
   .section1{
     animation: scroll linear;
@@ -938,9 +969,35 @@ letter-spacing: 2px;
     animation-range: entry 0% cover 15%;
   }
 .header h1 {
-  font-size: 30px;
+  font-size: 20px;
+}.memoji {
+  position: relative;
+  flex-direction: row; /* Keep in row to allow overlay */
+  justify-content: center;
+  align-items: center;
+  min-height: 350px; /* Ensure enough height for the overlay */
 }
 
+.lanyard {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 350px;
+  min-height: 350px;
+  margin: 0 auto;
+}
+
+.bubble {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: rgba(245, 245, 245, 0.9); /* Semi-transparent background */
+  backdrop-filter: blur(3px); /* Slight blur effect for better readability */
+  border: 2px solid white;
+  font-size: 12px;
+}
 .myphoto{
   width: 70%;
 
@@ -1053,13 +1110,13 @@ margin-top: -50px;
   width: 200px;
 }
 
-.bubble {
+.bubble2 {
   font-size: 10px;
   width: 300px;
  
 }
 #message{
-  width: 100%;
+  width: 80%;
 }
 
 

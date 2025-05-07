@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Particles from "./components/Particles/Particles";
 import Lanyard from "./components/Lanyard/Lanyard";
+import TypewriterText from "./components/Typewriter/Typewriter"
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -28,6 +29,7 @@ function Number({ n, decimals = 0 }) {
     </animated.h2>
   );
 }
+
 
 const Skills = ({ title, image }) => {
   return (
@@ -93,6 +95,8 @@ const Project = ({ title, desc, link, image }) => {
   );
 };
 
+
+
 const onSubmit = async (event) => {
   event.preventDefault();
   const formData = new FormData(event.target);
@@ -122,7 +126,7 @@ const onSubmit = async (event) => {
 
 const App = () => {
   const [count, setCount] = useState(0);
-
+  
   return (
     <>
       <div
@@ -148,9 +152,8 @@ const App = () => {
       </div>
       <div className="hello">
         <div className="header">
-          <h1 className="typewriter  font-DynaPuff text-4xl font-bold">
-            {" "}
-            Hi There👋! Welcome to Cica's portofolio
+        <h1 className="typewriter font-DynaPuff text-4xl font-bold">
+        <TypewriterText text="Hi There👋! Welcome to Cica's portofolio" speed={80} />
           </h1>
         </div>
         <div className="memoji">
@@ -562,7 +565,7 @@ const App = () => {
       <div className="section5">
         <div className="memoji2">
           <img src="/memoji3.gif" className="emoji" alt="Click me" />
-          <div className="bubble">
+          <div className="bubble2">
             <p>
               Wow — you scrolled all the way down here? That means a lot to me.
               Thank you for taking the time to explore my work, my story, and
