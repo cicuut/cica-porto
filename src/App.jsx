@@ -11,7 +11,7 @@ import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "./useInView";
-import resume from './assets/resume.pdf';
+import cv from './assets/cv.pdf';
 import Swal from 'sweetalert2';
 
 function Number({ n, decimals = 0 }) {
@@ -210,7 +210,7 @@ const App = () => {
             </div>
             <div className="resumeapp">
             <button className="resume">
-            <a href={resume} download="resume">Download resume</a>
+            <a href={cv} download="cv">Download resume</a>
           </button>
             <div className="apps">
               
